@@ -1,24 +1,58 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column              | Type   | Options                   |
+| --------------------| ------ | --------------------------|
+| nickname            | string | null: false               |
+| email               | string | null: false, unique: true |
+| encrypted_password  | string | null: false               |
+| name                | string | null: false               |
+| name_kana           | string | null: false               |
+| birthday            | date   | null: false               |
 
-Things you may want to cover:
+### Association
+- has_many :items
+- has_many :purchase_record
 
-* Ruby version
+## itemsテーブル
 
-* System dependencies
+| Column              | Type    | Options                        |
+| --------------------| --------| -------------------------------|
+| items_name          | string  | null: false                    |
+| items_information   | text    | null: false                    |
+| category            | string  | null: false                    |
+| items_status        | string  | null: false                    |
+| shipping_cost       | string  | null: false                    |
+| shipping_area       | string  | null: false                    |
+| days_to_ship        | integer | null: false                    |
+| price               | integer | null: false                    |
+| seller_name         | string  | null: false                    |
 
-* Configuration
+### Association
+- has_one :purchase_record
+- belongs_to :users
 
-* Database creation
+## purchase_recordテーブル
 
-* Database initialization
+| Column              | Type   | Options                        |
+| --------------------| ------ | -------------------------------|
+| buyer_name          | string | null: false                    |
+| items_name          | string | null: false                    |
 
-* How to run the test suite
+### Association
+- belongs_to :users
+- belongs_to :items
+- has_one :shipping_address
 
-* Services (job queues, cache servers, search engines, etc.)
+## shipping_addressテーブル
 
-* Deployment instructions
+| Column           | Type    | Options                   |
+| -----------------| ------- | --------------------------|
+| postal_code      | integer | null: false               |
+| prefectures      | string  | null: false               |
+| municipalities   | string  | null: false               |
+| address          | string  | null: false               |
+| building_name    | string  | null: false               |
+| telephone_number | integer | null: false               |
 
-* ...
+### Association
+- belongs_to :purchase_record
