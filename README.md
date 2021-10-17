@@ -1,58 +1,24 @@
-## usersテーブル
+# README
 
-| Column              | Type   | Options                   |
-| --------------------| ------ | --------------------------|
-| nickname            | string | null: false               |
-| email               | string | null: false, unique: true |
-| encrypted_password  | string | null: false               |
-| name                | string | null: false               |
-| name_kana           | string | null: false               |
-| birthday            | date   | null: false               |
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-### Association
-- has_many :items
-- has_many :purchase_record
+Things you may want to cover:
 
-## itemsテーブル
+* Ruby version
 
-| Column              | Type    | Options                        |
-| --------------------| --------| -------------------------------|
-| items_name          | string  | null: false                    |
-| items_information   | text    | null: false                    |
-| category            | string  | null: false                    |
-| items_status        | string  | null: false                    |
-| shipping_cost       | string  | null: false                    |
-| shipping_area       | string  | null: false                    |
-| days_to_ship        | integer | null: false                    |
-| price               | integer | null: false                    |
-| seller_name         | string  | null: false                    |
+* System dependencies
 
-### Association
-- has_one :purchase_record
-- belongs_to :users
+* Configuration
 
-## purchase_recordテーブル
+* Database creation
 
-| Column              | Type   | Options                        |
-| --------------------| ------ | -------------------------------|
-| buyer_name          | string | null: false                    |
-| items_name          | string | null: false                    |
+* Database initialization
 
-### Association
-- belongs_to :users
-- belongs_to :items
-- has_one :shipping_address
+* How to run the test suite
 
-## shipping_addressテーブル
+* Services (job queues, cache servers, search engines, etc.)
 
-| Column           | Type    | Options                   |
-| -----------------| ------- | --------------------------|
-| postal_code      | integer | null: false               |
-| prefectures      | string  | null: false               |
-| municipalities   | string  | null: false               |
-| address          | string  | null: false               |
-| building_name    | string  | null: false               |
-| telephone_number | integer | null: false               |
+* Deployment instructions
 
-### Association
-- belongs_to :purchase_record
+* ...
