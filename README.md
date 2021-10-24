@@ -22,10 +22,10 @@
 | items_name          | string     | null: false                    |
 | items_information   | text       | null: false                    |
 | category_id         | integer    | null: false                    |
-| items_status_id     | integer    | null: false                    |
-| shipping_cost_id    | integer    | null: false                    |
-| shipping_area_id    | integer    | null: false                    |
-| days_to_ship_id     | integer    | null: false                    |
+| item_state_id      | integer    | null: false                    |
+| shipcost_id        | integer    | null: false                    |
+| shiparea_id        | integer    | null: false                    |
+| daystoship_id       | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
