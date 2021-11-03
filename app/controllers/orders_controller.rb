@@ -4,8 +4,13 @@ class OrdersController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
     @purchase_address = PurchaseAddress.new
-    user_signed_in? && current_user.id == @item.user.id
-    redirect_to root_path
+    if user_signed_in? && current_user.id == @item.user.id
+      redirect_to root_path  
+    elsif @item.order.present?
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   def create
