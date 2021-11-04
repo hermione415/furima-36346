@@ -4,14 +4,17 @@ class PurchaseAddress
   attr_accessor :user_id, :item_id, :order_id, :postal_code, :prefecture_id, :municipalities, :address, :building_name,
                 :telephone_number, :token
 
-  validates :postal_code, presence: true, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-  validates :prefecture_id, presence: true
-  validates :municipalities, presence: true
-  validates :address, presence: true
-  validates :telephone_number, presence: true, format: { with: /\A[0-9]{10,11}+\z/ }
-  validates :user_id, presence: true
-  validates :item_id, presence: true
-  validates :token, presence: true
+  
+  with_options presence: true do
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
+    validates :prefecture_id
+    validates :municipalities
+    validates :address
+    validates :telephone_number, format: { with: /\A[0-9]{10,11}+\z/ }
+    validates :user_id
+    validates :item_id
+    validates :token
+  end
 
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
 
