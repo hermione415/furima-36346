@@ -22,9 +22,9 @@
 | items_name          | string     | null: false                    |
 | items_information   | text       | null: false                    |
 | category_id         | integer    | null: false                    |
-| item_state_id      | integer    | null: false                    |
-| shipcost_id        | integer    | null: false                    |
-| shiparea_id        | integer    | null: false                    |
+| item_state_id       | integer    | null: false                    |
+| shipcost_id         | integer    | null: false                    |
+| shiparea_id         | integer    | null: false                    |
 | daystoship_id       | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
@@ -49,9 +49,9 @@
 
 | Column           | Type      | Options                      |
 | -----------------| ----------| -----------------------------|
-| purchase         | references|null: false, foreign_key: true|
+| order            | references|null: false, foreign_key: true|
 | postal_code      | string    | null: false                  |
-| prefectures_id   | integer   | null: false                  |
+| prefecture_id    | integer   | null: false                  |
 | municipalities   | string    | null: false                  |
 | address          | string    | null: false                  |
 | building_name    | string    |                              |
